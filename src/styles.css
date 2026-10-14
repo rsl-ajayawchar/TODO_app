@@ -1,0 +1,424 @@
+/* Styles matching the ReactJS Assignment Requirements (Text Buttons) */
+
+:root {
+  --primary-teal: #17a2b8;
+  --primary-teal-hover: #138496;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --border-color: #ced4da;
+  --border-light: #dee2e6;
+  --completed-red: #dc3545;
+  --silver-bg: #c0c0c0;
+  --silver-bg-hover: #b0b0b0;
+  --card-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 16px 60px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* Main Container */
+.app-container {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 18px 0;
+  letter-spacing: -0.3px;
+}
+
+.section-list {
+  margin-top: 42px;
+}
+
+/* Section 1: TodoInput Card */
+.input-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 22px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-input {
+  width: 100%;
+  height: 42px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.todo-input:focus {
+  border-color: var(--primary-teal);
+}
+
+.todo-input::placeholder {
+  color: #adb5bd;
+}
+
+.add-task-btn {
+  width: 100%;
+  height: 42px;
+  margin-top: 16px;
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.add-task-btn:hover {
+  background-color: var(--primary-teal-hover);
+}
+
+/* Section 2: Filters */
+.filters-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.btn-filter {
+  flex: 1;
+  height: 38px;
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  border: 1px solid var(--primary-teal);
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+/* Requirement: When a specific filter is selected, add opacity of 0.6 to differentiate from non-selected */
+.btn-filter.selected {
+  opacity: 0.6;
+}
+
+.btn-filter:hover:not(.selected) {
+  background-color: var(--primary-teal-hover);
+}
+
+/* Todo Items List */
+.todo-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 12px 18px;
+  min-height: 52px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.15s ease;
+}
+
+.todo-item-card:hover {
+  border-color: #ced4da;
+}
+
+.todo-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Strikethrough for completed todo */
+.todo-completed-text {
+  color: var(--completed-red);
+  text-decoration: line-through;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Checkbox styling */
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  margin: 0 4px 0 0;
+  cursor: pointer;
+  accent-color: #28a745;
+}
+
+.todo-checkbox:disabled {
+  cursor: not-allowed;
+}
+
+/* Action Text Buttons: Silver Edit & Red Delete */
+.btn-silver-edit {
+  background-color: var(--silver-bg);
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-silver-edit:hover:not(:disabled) {
+  background-color: var(--silver-bg-hover);
+}
+
+.btn-silver-edit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-red-delete {
+  background-color: var(--completed-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-red-delete:hover:not(:disabled) {
+  background-color: #bd2130;
+}
+
+.btn-red-delete:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Edit Mode in a Row */
+.edit-mode-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.edit-input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  outline: none;
+}
+
+.edit-input:focus {
+  border-color: var(--primary-teal);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-confirm {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-confirm:hover {
+  background-color: var(--primary-teal-hover);
+}
+
+.btn-cancel {
+  background-color: #6c757d;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+/* Empty messaging */
+.empty-message-container {
+  text-align: center;
+  padding: 24px 16px;
+  background-color: var(--card-bg);
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+}
+
+.empty-message {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Modal Dialog */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 16px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.modal-dialog {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 22px 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.15s ease-out;
+}
+
+.modal-title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.modal-message {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.modal-todo-preview {
+  margin: 0 0 20px 0;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-left: 3px solid var(--primary-teal);
+  font-size: 13px;
+  font-style: italic;
+  color: #495057;
+  word-break: break-word;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-danger-confirm {
+  background-color: var(--completed-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-danger-confirm:hover {
+  background-color: #bd2130;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 24px 12px;
+  }
+
+  .input-card {
+    padding: 16px;
+  }
+
+  .todo-item-card {
+    padding: 10px 14px;
+  }
+
+  .todo-actions {
+    gap: 8px;
+  }
+
+  .btn-silver-edit,
+  .btn-red-delete {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
