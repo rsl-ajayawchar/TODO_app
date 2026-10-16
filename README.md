@@ -1,7 +1,6 @@
 # React Todo List Assignment
 
-A Todo List application built with React, TypeScript, and Vite designed according to the assignment requirements with text action buttons (`Edit` and `Delete`).
-
+A Todo List application built with React, TypeScript, and Vite.
 ## Features & Implementation Details
 
 1. **Structure & Layout**:
